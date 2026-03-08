@@ -1,0 +1,4 @@
+/* hide site title in navbar */
+.main-menu > a {
+  display: none !important;
+}
