@@ -4,15 +4,7 @@
 }
 
 
-/* light mode logo */
-html:not(.dark) .logo {
-content: url("/wallpaper.jpg");
-}
 
-/* dark mode logo */
-html.dark .logo {
-content: url("/img/Logo.png");
-}
 
 .main-menu img.logo {
   width: 280px !important;
