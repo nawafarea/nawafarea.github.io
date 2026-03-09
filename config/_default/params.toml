@@ -42,7 +42,7 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
 
 [header]
   layout = "basic" # valid options: basic, fixed, fixed-fill, fixed-gradient, fixed-fill-blur
-#  logo = "Logo.png"
+  logo = "Logo.png"
 
 [footer]
   showMenu = true
