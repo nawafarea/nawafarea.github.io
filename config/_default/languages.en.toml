@@ -16,8 +16,8 @@ title = "Blo8h"
 
  [params.author]
    name = "Nawaf Bin Raihan"
-   email = "youremail@example.com"
-   image = "img/blowfish_logo.png"
+   email = "nawafbinraihan@gmail.com"
+   image = "nawaf.png"
 #   imageQuality = 96
    headline = "I'm only human"
    bio = "A little bit about you"

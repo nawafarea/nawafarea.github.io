@@ -186,3 +186,13 @@ article > div.overflow-hidden.rounded-md {
 }
 
 
+
+
+
+
+article.prose .relative.flex.flex-col.items-center.justify-center > img.rounded-full {
+  width: 240px !important;
+  height: 240px !important;
+  border: 3px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+}
