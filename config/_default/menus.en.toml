@@ -15,9 +15,14 @@
   pageRef = "posts"
   weight = 10
 
+[[main]]
+  name = "Tags"
+  pageRef = "/tags/"
+  weight = 30
+
 #[[main]]
-#  name = "Parent"
-#  weight = 20
+ # name = "Parent"
+ # weight = 20
 
 #[[main]]
 #  name = "example sub-menu 1"

@@ -1,0 +1,1 @@
+﻿- [Kerberoasting - Exploiting Kerberos to Compromise Microsoft Active Directory | Bureau Veritas Cybersecurity](https://cybersecurity.bureauveritas.com/blog/kerberoasting-exploiting-kerberos-to-compromise-microsoft-active-directory)

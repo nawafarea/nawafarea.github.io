@@ -3,8 +3,18 @@
   display: none !important;
 }
 
-
-
+:root {
+  color-scheme: dark;
+}
+.single_hero_background,
+.single_hero_background img,
+#background-image,
+#background-image-main,
+#background-blur {
+  filter: none !important;
+  background: transparent !important;
+  mix-blend-mode: normal !important;
+}
 
 .main-menu img.logo {
   width: 280px !important;
@@ -13,7 +23,7 @@
 }
 
 
-.article-link--card {
+/* .article-link--card {
   border-radius: 20px !important;
   overflow: hidden !important;
   border: 1px solid rgba(255, 255, 255, 0.12) !important;
@@ -54,11 +64,203 @@
   line-height: 1.7;
   opacity: 0.92;
 }
+ */
+ 
+ 
+ 
+ 
+.article-link--card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
 
+.article-link--card:hover {
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.article-link--card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.2s ease;
+  will-change: transform;
+}
+
+.article-link--card h2,
+.article-link--card .text-sm,
+.article-link--card .article-link__summary,
+.article-link--related h2,
+.article-link--related .text-sm,
+.article-link--related .article-link__summary {
+  transform: translateZ(18px);
+}
+
+/* Card images: don't zoom, don't capture clicks */
+.article-link--card img,
+.article-link--related img {
+  pointer-events: none !important;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-touch-callout: none;
+}
+
+/* Card glow effect */
+.article-link--card,
+.article-link--related {
+  position: relative;
+  overflow: hidden;
+}
+
+.article-link--card::before,
+.article-link--related::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    240px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.20),
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.article-link--card:hover::before,
+.article-link--related:hover::before {
+  opacity: 1;
+}
+
+/* -------------------------------- */
+/* Reading progress circle          */
+/* -------------------------------- */
+
+#reading-progress-circle {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  width: 52px;
+  height: 52px;
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+#reading-progress-circle::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+#reading-progress-circle svg {
+  position: relative;
+  z-index: 1;
+  transform: rotate(-90deg);
+  width: 100%;
+  height: 100%;
+}
+
+#reading-progress-circle circle {
+  fill: none;
+  stroke-width: 3.2;
+}
+
+#progress-bg {
+  stroke: rgba(255, 255, 255, 0.12);
+}
+
+#progress-bar {
+  stroke: #22c55e;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 10px rgba(34, 197, 94, 0.45));
+  transition:
+    stroke-dashoffset 0.14s linear,
+    filter 0.2s ease;
+}
+
+#progress-percent {
+  position: absolute;
+  z-index: 2;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+}
+
+/* -------------------------------- */
+/* Scroll to top button fix         */
+/* -------------------------------- */
+
+#scroll-to-top {
+  right: 86px !important;
+  bottom: 22px !important;
+  transform: translateY(0) !important;
+}
+
+#scroll-to-top a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 9999px;
+}
+
+/* optional: نفس الستايل الزجاجي */
+#scroll-to-top a {
+  background: rgba(15, 23, 42, 0.45) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
 #background-image {
   filter: brightness(0.42) saturate(0.82) contrast(1.15) !important;
 }
-
 
 
 
@@ -195,4 +397,479 @@ article.prose .relative.flex.flex-col.items-center.justify-center > img.rounded-
   height: 240px !important;
   border: 3px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+}
+
+
+
+
+
+
+
+/* ========================================
+   TAGS
+======================================== */
+
+/* article/card tags container */
+.taxonomy-tag {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+/* ========================================
+   ARTICLE/CARD TAGS
+======================================== */
+
+.tag-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  min-height: 24px;
+  padding: 4px 10px;
+
+  border-radius: 999px;
+
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+
+  line-height: 1;
+  white-space: nowrap;
+
+  text-decoration: none !important;
+
+  border: 1px solid transparent;
+
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+
+.tag-chip:hover {
+  transform: translateY(-1px);
+}
+
+/* ========================================
+   TAG PAGE GRID
+======================================== */
+
+.tag-page-item {
+  display: inline-block;
+  margin: 0 20px 20px 0;
+}
+
+
+
+
+
+
+/* ========================================
+   TAG PAGE TAGS
+======================================== */
+
+.tag-page-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-height: 32px;
+  padding: 6px 14px;
+
+  border-radius: 999px;
+
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+
+  line-height: 1;
+  white-space: nowrap;
+
+  text-decoration: none !important;
+
+  border: 1px solid transparent;
+
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+
+.tag-page-link:hover {
+  transform: translateY(-1px);
+}
+
+/* ========================================
+   TAG COUNT
+======================================== */
+
+.tag-page-link__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 18px;
+  height: 18px;
+
+  padding: 0 5px;
+
+  border-radius: 999px;
+
+  font-size: 0.68rem;
+  font-weight: 700;
+
+  line-height: 1;
+
+  background: rgba(255,255,255,0.06);
+}
+
+/* ========================================
+   TAG COLORS
+======================================== */
+
+/* SIEM */
+.tag-chip[href*="/tags/siem/"],
+.tag-page-link[href*="/tags/siem/"] {
+  color: #86efac;
+  background: rgba(34,197,94,0.07);
+  border-color: rgba(34,197,94,0.28);
+}
+.tag-chip[href*="/tags/siem/"]:hover,
+.tag-page-link[href*="/tags/siem/"]:hover {
+  box-shadow: 0 0 8px rgba(34,197,94,0.20);
+}
+
+/* CLOUD */
+.tag-chip[href*="/tags/cloud/"],
+.tag-page-link[href*="/tags/cloud/"] {
+  color: #93c5fd;
+  background: rgba(59,130,246,0.07);
+  border-color: rgba(59,130,246,0.28);
+}
+.tag-chip[href*="/tags/cloud/"]:hover,
+.tag-page-link[href*="/tags/cloud/"]:hover {
+  box-shadow: 0 0 8px rgba(59,130,246,0.20);
+}
+
+/* THREAT HUNTING */
+.tag-chip[href*="/tags/threat-hunting/"],
+.tag-page-link[href*="/tags/threat-hunting/"] {
+  color: #c4b5fd;
+  background: rgba(139,92,246,0.07);
+  border-color: rgba(139,92,246,0.28);
+}
+.tag-chip[href*="/tags/threat-hunting/"]:hover,
+.tag-page-link[href*="/tags/threat-hunting/"]:hover {
+  box-shadow: 0 0 8px rgba(139,92,246,0.20);
+}
+
+/* DETECTION */
+.tag-chip[href*="/tags/detection/"],
+.tag-page-link[href*="/tags/detection/"] {
+  color: #67e8f9;
+  background: rgba(6,182,212,0.07);
+  border-color: rgba(6,182,212,0.28);
+}
+.tag-chip[href*="/tags/detection/"]:hover,
+.tag-page-link[href*="/tags/detection/"]:hover {
+  box-shadow: 0 0 8px rgba(6,182,212,0.20);
+}
+
+/* MALWARE */
+.tag-chip[href*="/tags/malware/"],
+.tag-page-link[href*="/tags/malware/"] {
+  color: #fca5a5;
+  background: rgba(239,68,68,0.07);
+  border-color: rgba(239,68,68,0.28);
+}
+.tag-chip[href*="/tags/malware/"]:hover,
+.tag-page-link[href*="/tags/malware/"]:hover {
+  box-shadow: 0 0 8px rgba(239,68,68,0.20);
+}
+
+/* SOC */
+.tag-chip[href*="/tags/soc/"],
+.tag-page-link[href*="/tags/soc/"] {
+  color: #fcd34d;
+  background: rgba(234,179,8,0.07);
+  border-color: rgba(234,179,8,0.28);
+}
+.tag-chip[href*="/tags/soc/"]:hover,
+.tag-page-link[href*="/tags/soc/"]:hover {
+  box-shadow: 0 0 8px rgba(234,179,8,0.20);
+}
+
+/* FORENSICS */
+.tag-chip[href*="/tags/forensics/"],
+.tag-page-link[href*="/tags/forensics/"] {
+  color: #f9a8d4;
+  background: rgba(236,72,153,0.07);
+  border-color: rgba(236,72,153,0.28);
+}
+.tag-chip[href*="/tags/forensics/"]:hover,
+.tag-page-link[href*="/tags/forensics/"]:hover {
+  box-shadow: 0 0 8px rgba(236,72,153,0.20);
+}
+
+/* INCIDENT RESPONSE */
+.tag-chip[href*="/tags/incident-response/"],
+.tag-page-link[href*="/tags/incident-response/"] {
+  color: #fdba74;
+  background: rgba(249,115,22,0.07);
+  border-color: rgba(249,115,22,0.28);
+}
+.tag-chip[href*="/tags/incident-response/"]:hover,
+.tag-page-link[href*="/tags/incident-response/"]:hover {
+  box-shadow: 0 0 8px rgba(249,115,22,0.20);
+}
+
+/* OSINT */
+.tag-chip[href*="/tags/osint/"],
+.tag-page-link[href*="/tags/osint/"] {
+  color: #a5f3fc;
+  background: rgba(14,165,233,0.07);
+  border-color: rgba(14,165,233,0.28);
+}
+.tag-chip[href*="/tags/osint/"]:hover,
+.tag-page-link[href*="/tags/osint/"]:hover {
+  box-shadow: 0 0 8px rgba(14,165,233,0.20);
+}
+
+
+
+
+
+/* make tags list use full page width */
+main > section.flex.flex-wrap.max-w-prose.-mx-2.overflow-hidden {
+  max-width: 100% !important;
+  width: 100% !important;
+  overflow: visible !important;
+}
+main > section.flex.flex-wrap.max-w-prose.-mx-2.overflow-hidden {
+  gap: 6px 10px;
+}
+
+
+
+
+
+
+
+
+
+/* ========================================
+   HERO OVERLAY — FINAL
+   page-kind based
+   DARK THEME BLUR NO COLORS
+======================================== */
+
+/* الرئيسية 
+body.page-kind-home main#main-content article.prose .fixed.inset-x-0.top-0.-z-10::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.04),
+    rgba(0, 0, 0, 0.14)
+  );
+  pointer-events: none;
+}
+
+/* صفحة البوستات 
+body.page-kind-section .single_hero_background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.08),
+    rgba(0, 0, 0, 0.20)
+  );
+  pointer-events: none;
+}
+
+/* المقالة 
+body.page-kind-page .single_hero_background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.12),
+    rgba(0, 0, 0, 0.34)
+  );
+  pointer-events: none;
+}
+
+/* صفحة التاقات 
+body.page-kind-taxonomy .single_hero_background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.06),
+    rgba(0, 0, 0, 0.16)
+  );
+  pointer-events: none;
+}
+
+/* صفحة التاق المفرد 
+body.page-kind-term .single_hero_background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.08),
+    rgba(0, 0, 0, 0.22)
+  );
+  pointer-events: none;
+}
+
+*/
+
+
+
+/* ========================================
+   HERO OVERLAY — CINEMATIC COLOR TINT
+======================================== */
+
+/* الرئيسية — بنفسجي خفيف */
+body.page-kind-home main#main-content article.prose .fixed.inset-x-0.top-0.-z-10::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(120,60,255,0.14),
+      rgba(0,0,0,0.18)
+    );
+  pointer-events:none;
+}
+
+
+/* صفحة البوستات — تركوازي */
+body.page-kind-section .single_hero_background::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255,60,60,0.16),
+      rgba(0,0,0,0.24)
+    );
+  pointer-events:none;
+}
+
+
+/* المقالة — القراءة (كما هي تقريباً) */
+body.page-kind-page .single_hero_background::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.14),
+      rgba(0,0,0,0.34)
+    );
+  pointer-events:none;
+}
+
+
+/* صفحة التاقات — أخضر */
+body.page-kind-taxonomy .single_hero_background::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(60,255,150,0.14),
+      rgba(0,0,0,0.20)
+    );
+  pointer-events:none;
+}
+
+
+/* التاق المفرد — أخضر أغمق شوي */
+body.page-kind-term .single_hero_background::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(50,220,130,0.16),
+      rgba(0,0,0,0.24)
+    );
+  pointer-events:none;
+}
+
+
+
+
+/* ========================================
+   ARTICLE WIDTH FIX
+======================================== */
+
+/* العمود الرئيسي للمقال */
+body.page-kind-page section.prose > div.min-w-0.min-h-0.max-w-fit {
+  width: 100% !important;
+  max-width: 920px !important;
+}
+
+/* الهيدر فوق */
+body.page-kind-page #single_header {
+  max-width: 920px !important;
+}
+
+/* محتوى المقال */
+body.page-kind-page .article-content {
+  max-width: 920px !important;
+  width: 100% !important;
+  line-height: 1.95;
+  font-size: 1.08rem;
+}
+
+/* لو max-w-prose من الثيم ما زال يضغط */
+body.page-kind-page .article-content.max-w-prose,
+body.page-kind-page #single_header.max-w-prose {
+  max-width: 920px !important;
+}
+
+/* التوك أخف شوي */
+body.page-kind-page .toc {
+  max-width: 220px;
+}
+
+/* NEW ICON IN BLOG */
+@keyframes premiumPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(250,204,21,0.6);
+  }
+  70% {
+    transform: scale(1.12);
+    box-shadow: 0 0 0 6px rgba(250,204,21,0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(250,204,21,0);
+  }
+}
+
+
+.prose a:hover {
+  color: white !important;
 }
