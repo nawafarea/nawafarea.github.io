@@ -4,7 +4,7 @@ date: 2026-03-14
 draft: false
 featureimage: "cover.jpg"
 images:
-  - "cover.jpg"
+  - "social.jpg"
 summary: "An overview of Kerberoasting, an attack on Kerberos service accounts, including how it works and methods for detecting suspicious ticket requests."
 tags: ["siem", "threat-hunting", "detection", "soc"]
 ---
