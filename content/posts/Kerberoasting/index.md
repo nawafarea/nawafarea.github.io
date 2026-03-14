@@ -107,6 +107,10 @@ Kerberoasting attacks usually starts with enumerating the **Service Principal Na
 
 A **sudden spike in SPN-related queries within a short period of time** may indicate reconnaissance activity preceding a Kerberoasting attempt.
 
+{{< figure
+    src="SPNs.png"
+    >}}
+
 Attackers frequently leverage well-known offensive tooling to automate SPN discovery and Kerberos ticket extraction. Common tools observed in Kerberoasting activity include **Rubeus, Impacket (GetUserSPNs.py), and PowerView / Invoke-Kerberoast**. Detection rules can monitor **process creation events (Event ID 4688 / 1)** as well as **Powershell script block logging (Event ID 4104)** for executions containing these tool names or associated command-line arguments.
 
 
