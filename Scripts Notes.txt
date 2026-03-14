@@ -1,1 +1,3 @@
-.Get-LinkTitles.ps1 -InputFile .urls.txt -OutputFile .refs.md
+echo "https://cybersecurity.bureauveritas.com/blog/kerberoasting-exploiting-kerberos-to-compromise-microsoft-active-directory" > .\urls.txt
+
+.\Get-LinkTitles.ps1 -InputFile .\urls.txt -OutputFile .\refs.md

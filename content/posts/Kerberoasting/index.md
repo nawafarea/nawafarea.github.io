@@ -1,5 +1,5 @@
 ---
-title: "Kerberoasting"
+title: "Exploring Kerberoasting in Active Directory"
 date: 2026-03-14
 draft: false
 featureimage: "cover.jpg"
